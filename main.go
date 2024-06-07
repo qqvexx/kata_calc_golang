@@ -139,4 +139,5 @@ func main() {
 	} else {
 		fmt.Println("Результат:", resultation)
 	}
+	fmt.Println(&num1) // добавлено для кайфа, чтоб не офалась, отключить
 }
