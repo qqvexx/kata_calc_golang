@@ -12,6 +12,8 @@ import (
 var romanMap = map[string]int{
 	"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6,
 	"VII": 7, "VIII": 8, "IX": 9, "X": 10, "L": 50, "C": 100,
+	"i": 1, "ii": 2, "iii": 3, "iv": 4, "v": 5, "vi": 6,
+	"vii": 7, "viii": 8, "ix": 9, "x": 10, "l": 50, "c": 100,
 }
 
 // перевожу римов из строки в арабов инт
@@ -28,35 +30,35 @@ func arabicToRoman(arabic int) string {
 	}
 	if arabic >= 90 {
 		result.WriteString("XC")
-		arabic = 90
+		arabic -= 90
 	}
 	for arabic >= 50 {
 		result.WriteString("L")
-		arabic = 50
+		arabic -= 50
 	}
 	if arabic >= 40 {
 		result.WriteString("XL")
-		arabic = 40
+		arabic -= 40
 	}
 	for arabic >= 10 {
 		result.WriteString("X")
-		arabic = 10
+		arabic -= 10
 	}
 	if arabic == 9 {
 		result.WriteString("IX")
-		arabic = 9
+		arabic -= 9
 	}
 	if arabic >= 5 {
 		result.WriteString("V")
-		arabic = 5
+		arabic -= 5
 	}
 	if arabic == 4 {
 		result.WriteString("IV")
-		arabic = 4
+		arabic -= 4
 	}
 	for arabic > 0 {
 		result.WriteString("I")
-		arabic = 1
+		arabic -= 1
 	}
 	return result.String()
 }
@@ -75,54 +77,56 @@ func isRoman(input string) bool {
 func main() {
 	fmt.Println("Добро пожаловать в мой калькулятор на GO!!!")
 
-	var a, opr, b string
-	var err = ""
+	var x, opr, y, empt string
 
 	fmt.Println("Введи выражение: ")
-	fmt.Fscanln(os.Stdin, &a, &opr, &b, &err)
+	fmt.Fscanln(os.Stdin, &x, &opr, &y, &empt)
 
-	if err != "" {
+	if empt != "" {
 		panic("Ошибка, ничего не введено!")
 		return
 	}
-	if isRoman(a) != isRoman(b) {
-		panic("Ошибка ввода!")
+	if isRoman(x) != isRoman(y) {
+		panic("Ошипка(, нужно вводить выражение в одной системе цифр")
 		return
 	}
+
 	var num1, num2 int
-	if isRoman(a) {
-		num1 = romanToArabic(a)
+	if isRoman(x) {
+		num1 = romanToArabic(x)
 	} else {
-		num1, _ = strconv.Atoi(a)
+		num1, _ = strconv.Atoi(x)
 	}
-	if isRoman(b) {
-		num2 = romanToArabic(b)
+	if isRoman(y) {
+		num2 = romanToArabic(y)
 	} else {
-		num2, _ = strconv.Atoi(b)
+		num2, _ = strconv.Atoi(y)
 	}
+
 	var resultation int
+
 	switch opr {
 	case "+":
 		if num2 > 10 {
-			panic("Ошибка ввода!")
+			panic("Я с числами больше 10 не работаю!")
 			return
 		}
 		resultation = num1 + num2
 	case "-":
 		if num2 > 10 {
-			panic("Ошибка ввода!")
+			panic("Я с числами больше 10 не работаю!")
 			return
 		}
 		resultation = num1 - num2
 	case "*":
 		if num2 > 10 {
-			panic("Ошибка ввода!")
+			panic("Я с числами больше 10 не работаю!")
 			return
 		}
 		resultation = num1 * num2
 	case "/":
 		if num2 > 10 {
-			panic("Ошибка ввода!")
+			panic("Я с числами больше 10 не работаю!")
 			return
 		}
 		resultation = num1 / num2
@@ -130,14 +134,13 @@ func main() {
 		panic("Не знаю такую операцию!")
 		return
 	}
-	if isRoman(a) && isRoman(b) {
+	if isRoman(x) && isRoman(y) {
 		var e = arabicToRoman(resultation)
 		if e == "" {
-			panic("Ошибка")
+			panic("Ошибка, введи римские цифры в верхнем регистре")
 		}
-		fmt.Println("Результат:", arabicToRoman(resultation))
+		fmt.Println("Твой результат:", arabicToRoman(resultation))
 	} else {
-		fmt.Println("Результат:", resultation)
+		fmt.Println("Твой результат:", resultation)
 	}
-	fmt.Println(&num1) // добавлено для кайфа, чтоб не офалась, отключить
 }
