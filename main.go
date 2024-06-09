@@ -137,7 +137,7 @@ func main() {
 	if isRoman(x) && isRoman(y) {
 		var e = arabicToRoman(resultation)
 		if e == "" {
-			panic("Ошибка, введи римские цифры в верхнем регистре")
+			panic("Ошибка, в римской системе чисел нет отрицательных значений")
 		}
 		fmt.Println("Твой результат:", arabicToRoman(resultation))
 	} else {
