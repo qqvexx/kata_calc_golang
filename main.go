@@ -143,4 +143,5 @@ func main() {
 	} else {
 		fmt.Println("Твой результат:", resultation)
 	}
+	fmt.Scanln(&x)
 }
