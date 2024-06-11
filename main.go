@@ -107,36 +107,38 @@ func main() {
 
 	switch opr {
 	case "+":
-		if num2 > 10 {
-			panic("Я с числами больше 10 не работаю!")
+		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 + num2
 	case "-":
-		if num2 > 10 {
-			panic("Я с числами больше 10 не работаю!")
+		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 - num2
 	case "*":
-		if num2 > 10 {
-			panic("Я с числами больше 10 не работаю!")
+		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 * num2
 	case "/":
-		if num2 > 10 {
-			panic("Я с числами больше 10 не работаю!")
+		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 / num2
 	default:
 		panic("Не знаю такую операцию!")
 		return
+	} // в чате прочитал про работу с числами только от 1 до 10
+	
 	}
 	if isRoman(x) && isRoman(y) {
-		var e = arabicToRoman(resultation)
-		if e == "" {
+		var negative = arabicToRoman(resultation) // перезаписал имя переменной для читабельности
+		if negative == "" {
 			panic("Ошибка, в римской системе чисел нет отрицательных значений")
 		}
 		fmt.Println("Твой результат:", arabicToRoman(resultation))
