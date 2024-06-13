@@ -87,7 +87,7 @@ func main() {
 		return
 	}
 	if isRoman(x) != isRoman(y) {
-		panic("Ошипка(, нужно вводить выражение в одной системе цифр")
+		panic("Ошибка, нужно вводить выражение в одной системе счисления")
 		return
 	}
 
@@ -107,25 +107,25 @@ func main() {
 
 	switch opr {
 	case "+":
-		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+		if num2 > 10 || num2 < 1 && num1 > 10 || num1 < 1 {
 			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 + num2
 	case "-":
-		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+		if num2 > 10 || num2 < 1 && num1 > 10 || num1 < 1 {
 			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 - num2
 	case "*":
-		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+		if num2 > 10 || num2 < 1 && num1 > 10 || num1 < 1 {
 			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
 		resultation = num1 * num2
 	case "/":
-		if num1 > 10 || num1 < 1 && num2 > 10 || num2 < 1 {
+		if num2 > 10 || num2 < 1 && num1 > 10 || num1 < 1 {
 			panic("Ошибка, я работаю с числами от 1 до 10")
 			return
 		}
@@ -133,11 +133,10 @@ func main() {
 	default:
 		panic("Не знаю такую операцию!")
 		return
-	} // в чате прочитал про работу с числами только от 1 до 10
-	
 	}
+
 	if isRoman(x) && isRoman(y) {
-		var negative = arabicToRoman(resultation) // перезаписал имя переменной для читабельности
+		var negative = arabicToRoman(resultation)
 		if negative == "" {
 			panic("Ошибка, в римской системе чисел нет отрицательных значений")
 		}
@@ -145,5 +144,4 @@ func main() {
 	} else {
 		fmt.Println("Твой результат:", resultation)
 	}
-	fmt.Scanln(&x, &y)
 }
