@@ -90,7 +90,83 @@ func main() {
 		panic("Ошибка, нужно вводить выражение в одной системе счисления")
 		return
 	}
-
+	//выглядит не прикольно зато работает)
+	var romanNums [8]string
+	romanNums[0] = "IIII"
+	romanNums[1] = "IIIII"
+	romanNums[2] = "IIIIII"
+	romanNums[3] = "IIIIIII"
+	romanNums[4] = "IIIIIIII"
+	romanNums[5] = "IIIIIIIII"
+	romanNums[6] = "IIIIIIIIII"
+	romanNums[7] = "VV"
+	// для первой переменнойы
+	if x == romanNums[0] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[1] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[2] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[3] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[4] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[5] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[6] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if x == romanNums[7] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	// а это для второй переменной
+	if y == romanNums[0] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[1] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[2] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[3] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[4] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[5] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[6] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	if y == romanNums[7] {
+		panic("Нужно вводить римские цифры правильно!")
+		return
+	}
+	
 	var num1, num2 int
 	if isRoman(x) {
 		num1 = romanToArabic(x)
@@ -101,18 +177,6 @@ func main() {
 		num2 = romanToArabic(y)
 	} else {
 		num2, _ = strconv.Atoi(y)
-	}
-
-	// здесь обработка ввода пользователя, если нет в мапе такого значения то выключаемся
-	num1, ok := romanMap[x]
-	if !ok {
-		panic("Нужно вводить римские цифры правильно!")
-		return
-	}
-	num2, oke := romanMap[y]
-	if !oke {
-		panic("Нужно вводить римские цифры правильно!")
-		return
 	}
 	
 	var resultation int
