@@ -107,10 +107,12 @@ func main() {
 	num1, ok := romanMap[x]
 	if !ok {
 		panic("Нужно вводить римские цифры правильно!")
+		return
 	}
 	num2, oke := romanMap[y]
 	if !oke {
 		panic("Нужно вводить римские цифры правильно!")
+		return
 	}
 	
 	var resultation int
