@@ -103,6 +103,16 @@ func main() {
 		num2, _ = strconv.Atoi(y)
 	}
 
+	// здесь обработка ввода пользователя, если нет в мапе такого значения то выключаемся
+	num1, ok := romanMap[x]
+	if !ok {
+		panic("Нужно вводить римские цифры правильно!")
+	}
+	num2, oke := romanMap[y]
+	if !oke {
+		panic("Нужно вводить римские цифры правильно!")
+	}
+	
 	var resultation int
 
 	switch opr {
